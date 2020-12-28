@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TarjetasclienteCreateDlg" widgetVar="TarjetasclienteCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTarjetasclienteTitle}">
+            <h:form id="TarjetasclienteCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tarjetasclienteController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateTarjetasclienteLabel_nombrePropietario}" for="nombrePropietario" />
+                        <p:inputText id="nombrePropietario" value="#{tarjetasclienteController.selected.nombrePropietario}" title="#{bundle.CreateTarjetasclienteTitle_nombrePropietario}" required="true" requiredMessage="#{bundle.CreateTarjetasclienteRequiredMessage_nombrePropietario}"/>
+                        <p:outputLabel value="#{bundle.CreateTarjetasclienteLabel_numero}" for="numero" />
+                        <p:inputText id="numero" value="#{tarjetasclienteController.selected.numero}" title="#{bundle.CreateTarjetasclienteTitle_numero}" required="true" requiredMessage="#{bundle.CreateTarjetasclienteRequiredMessage_numero}"/>
+                        <p:outputLabel value="#{bundle.CreateTarjetasclienteLabel_cvv}" for="cvv" />
+                        <p:inputText id="cvv" value="#{tarjetasclienteController.selected.cvv}" title="#{bundle.CreateTarjetasclienteTitle_cvv}" required="true" requiredMessage="#{bundle.CreateTarjetasclienteRequiredMessage_cvv}"/>
+                        <p:outputLabel value="#{bundle.CreateTarjetasclienteLabel_fechaExpiracion}" for="fechaExpiracion" />
+                        <p:inputText id="fechaExpiracion" value="#{tarjetasclienteController.selected.fechaExpiracion}" title="#{bundle.CreateTarjetasclienteTitle_fechaExpiracion}" required="true" requiredMessage="#{bundle.CreateTarjetasclienteRequiredMessage_fechaExpiracion}"/>
+                        <p:outputLabel value="#{bundle.CreateTarjetasclienteLabel_idCliente}" for="idCliente" />
+                        <p:selectOneMenu id="idCliente" value="#{tarjetasclienteController.selected.idCliente}" >
+                            <f:selectItems value="#{usuariosController.itemsAvailableSelectOne}"
+                                           var="idClienteItem"
+                                           itemValue="#{idClienteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateTarjetasclienteLabel_idServicio}" for="idServicio" />
+                        <p:selectOneMenu id="idServicio" value="#{tarjetasclienteController.selected.idServicio}" >
+                            <f:selectItems value="#{serviciosfinancierosController.itemsAvailableSelectOne}"
+                                           var="idServicioItem"
+                                           itemValue="#{idServicioItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tarjetasclienteController.create}" value="#{bundle.Save}" update="display,:TarjetasclienteListForm:datalist,:growl" oncomplete="handleSubmit(args,'TarjetasclienteCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TarjetasclienteCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

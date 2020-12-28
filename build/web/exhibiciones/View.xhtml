@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ExhibicionesViewDlg" widgetVar="ExhibicionesViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewExhibicionesTitle}">
+            <h:form id="ExhibicionesViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{exhibicionesController.selected != null}">
+                        <h:outputText value="#{bundle.ViewExhibicionesLabel_id}"/>
+                        <h:outputText value="#{exhibicionesController.selected.id}" title="#{bundle.ViewExhibicionesTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewExhibicionesLabel_nombre}"/>
+                        <h:outputText value="#{exhibicionesController.selected.nombre}" title="#{bundle.ViewExhibicionesTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewExhibicionesLabel_descripcion}"/>
+                        <h:outputText value="#{exhibicionesController.selected.descripcion}" title="#{bundle.ViewExhibicionesTitle_descripcion}"/>
+                        <h:outputText value="#{bundle.ViewExhibicionesLabel_fechaInicio}"/>
+                        <h:outputText value="#{exhibicionesController.selected.fechaInicio}" title="#{bundle.ViewExhibicionesTitle_fechaInicio}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewExhibicionesLabel_fechaFin}"/>
+                        <h:outputText value="#{exhibicionesController.selected.fechaFin}" title="#{bundle.ViewExhibicionesTitle_fechaFin}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewExhibicionesLabel_status}"/>
+                        <h:outputText value="#{exhibicionesController.selected.status}" title="#{bundle.ViewExhibicionesTitle_status}"/>
+                        <h:outputText value="#{bundle.ViewExhibicionesLabel_idGaleria}"/>
+                        <h:outputText value="#{exhibicionesController.selected.idGaleria}" title="#{bundle.ViewExhibicionesTitle_idGaleria}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ExhibicionesViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

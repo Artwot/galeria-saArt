@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="template/template_crud.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="Panel del Administrador"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <!-- ***** Chefs Area Starts ***** -->
+            <section class="section" id="chefs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 offset-lg-4 text-center">
+                            <div class="section-heading">
+                                <h2>Bienvenido</h2>
+                                <h6>Por favor, seleccione una opción.</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h:link outcome="/autores/List">
+                                <div class="chef-item">
+                                    <div class="thumb">
+                                        <h:graphicImage name="assets/images/panel/panel_artista.jpg" alt="Chef #1" />
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>Artistas</h4>
+                                        <span>CRUD's Artistas<br/></span>
+                                    </div>
+                                </div>
+                            </h:link>
+                        </div>
+                        <div class="col-lg-4">
+                            <h:link outcome="/obras/List">
+                                <div class="chef-item">
+                                    <div class="thumb">
+                                        <h:graphicImage name="assets/images/panel/panel_paises.jpg" alt="Chef #2" />
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>Obras</h4>
+                                        <span>CRUD's Obras</span>
+                                    </div>
+                                </div>
+                            </h:link>
+                        </div>
+                        <div class="col-lg-4">
+                            <h:link outcome="/entidades/List">
+                                <div class="chef-item">
+                                    <div class="thumb">
+                                        <h:graphicImage name="assets/images/panel/panel_ent.jpg" alt="Chef #2" />
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>Entidades</h4>
+                                        <span>CRUD's Entidades</span>
+                                    </div>
+                                </div>
+                            </h:link>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h:link outcome="/municipios/List">
+                                <div class="chef-item">
+                                    <div class="thumb">
+                                        <h:graphicImage name="assets/images/panel/panel_municipios.jpg" alt="Chef #1" />
+                                    </div>
+                                    <div class="down-content">
+                                        <h:link outcome="/municipios/List">
+                                            <h4>Municipios</h4>
+                                            <span>CRUD's Municipios</span>
+                                        </h:link>
+                                    </div>
+                                </div>
+                            </h:link>
+                        </div>
+                        <div class="col-lg-4">
+                            <h:link outcome="/correos/List">
+                                <div class="chef-item">
+                                    <div class="thumb">
+                                        <h:graphicImage name="assets/images/panel/panel_mail.jpg" alt="Chef #2" />
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>Correos</h4>
+                                        <span>CRUD's Correos</span>
+                                    </div>
+                                </div>
+                            </h:link>
+                        </div>
+                        <div class="col-lg-4">
+                            <h:link outcome="/paqueterias/List">
+                                <div class="chef-item">
+                                    <div class="thumb">
+                                        <h:graphicImage name="assets/images/panel/panel_paq.jpeg" alt="Chef #3" />
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>Paqueterías</h4>
+                                        <span>CRUD's Paqueterías.</span>
+                                    </div>
+                                </div>
+                            </h:link>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ***** Chefs Area Ends ***** -->
+        </ui:define>
+    </ui:composition>
+
+</html>
+

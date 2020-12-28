@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="GaleriasCreateDlg" widgetVar="GaleriasCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateGaleriasTitle}">
+            <h:form id="GaleriasCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{galeriasController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateGaleriasLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{galeriasController.selected.nombre}" title="#{bundle.CreateGaleriasTitle_nombre}" required="true" requiredMessage="#{bundle.CreateGaleriasRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.CreateGaleriasLabel_calle}" for="calle" />
+                        <p:inputText id="calle" value="#{galeriasController.selected.calle}" title="#{bundle.CreateGaleriasTitle_calle}" required="true" requiredMessage="#{bundle.CreateGaleriasRequiredMessage_calle}"/>
+                        <p:outputLabel value="#{bundle.CreateGaleriasLabel_numExt}" for="numExt" />
+                        <p:inputText id="numExt" value="#{galeriasController.selected.numExt}" title="#{bundle.CreateGaleriasTitle_numExt}" required="true" requiredMessage="#{bundle.CreateGaleriasRequiredMessage_numExt}"/>
+                        <p:outputLabel value="#{bundle.CreateGaleriasLabel_colonia}" for="colonia" />
+                        <p:inputText id="colonia" value="#{galeriasController.selected.colonia}" title="#{bundle.CreateGaleriasTitle_colonia}" required="true" requiredMessage="#{bundle.CreateGaleriasRequiredMessage_colonia}"/>
+                        <p:outputLabel value="#{bundle.CreateGaleriasLabel_cp}" for="cp" />
+                        <p:inputText id="cp" value="#{galeriasController.selected.cp}" title="#{bundle.CreateGaleriasTitle_cp}" required="true" requiredMessage="#{bundle.CreateGaleriasRequiredMessage_cp}"/>
+                        <p:outputLabel value="#{bundle.CreateGaleriasLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{galeriasController.selected.telefono}" title="#{bundle.CreateGaleriasTitle_telefono}" required="true" requiredMessage="#{bundle.CreateGaleriasRequiredMessage_telefono}"/>
+                        <p:outputLabel value="#{bundle.CreateGaleriasLabel_web}" for="web" />
+                        <p:inputText id="web" value="#{galeriasController.selected.web}" title="#{bundle.CreateGaleriasTitle_web}" required="true" requiredMessage="#{bundle.CreateGaleriasRequiredMessage_web}"/>
+                        <p:outputLabel value="#{bundle.CreateGaleriasLabel_horario}" for="horario" />
+                        <p:inputText id="horario" value="#{galeriasController.selected.horario}" title="#{bundle.CreateGaleriasTitle_horario}" required="true" requiredMessage="#{bundle.CreateGaleriasRequiredMessage_horario}"/>
+                        <p:outputLabel value="#{bundle.CreateGaleriasLabel_idPais}" for="idPais" />
+                        <p:selectOneMenu id="idPais" value="#{galeriasController.selected.idPais}" >
+                            <f:selectItems value="#{paisesController.itemsAvailableSelectOne}"
+                                           var="idPaisItem"
+                                           itemValue="#{idPaisItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateGaleriasLabel_idEntidad}" for="idEntidad" />
+                        <p:selectOneMenu id="idEntidad" value="#{galeriasController.selected.idEntidad}" >
+                            <f:selectItems value="#{entidadesController.itemsAvailableSelectOne}"
+                                           var="idEntidadItem"
+                                           itemValue="#{idEntidadItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateGaleriasLabel_idMunicipio}" for="idMunicipio" />
+                        <p:selectOneMenu id="idMunicipio" value="#{galeriasController.selected.idMunicipio}" >
+                            <f:selectItems value="#{municipiosController.itemsAvailableSelectOne}"
+                                           var="idMunicipioItem"
+                                           itemValue="#{idMunicipioItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{galeriasController.create}" value="#{bundle.Save}" update="display,:GaleriasListForm:datalist,:growl" oncomplete="handleSubmit(args,'GaleriasCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="GaleriasCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

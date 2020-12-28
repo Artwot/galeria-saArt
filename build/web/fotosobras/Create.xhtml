@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FotosobrasCreateDlg" widgetVar="FotosobrasCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateFotosobrasTitle}">
+            <h:form id="FotosobrasCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{fotosobrasController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateFotosobrasLabel_ruta}" for="ruta" />
+                        <p:inputText id="ruta" value="#{fotosobrasController.selected.ruta}" title="#{bundle.CreateFotosobrasTitle_ruta}" required="true" requiredMessage="#{bundle.CreateFotosobrasRequiredMessage_ruta}"/>
+                        <p:outputLabel value="#{bundle.CreateFotosobrasLabel_idObra}" for="idObra" />
+                        <p:selectOneMenu id="idObra" value="#{fotosobrasController.selected.idObra}" >
+                            <f:selectItems value="#{obrasController.itemsAvailableSelectOne}"
+                                           var="idObraItem"
+                                           itemValue="#{idObraItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{fotosobrasController.create}" value="#{bundle.Save}" update="display,:FotosobrasListForm:datalist,:growl" oncomplete="handleSubmit(args,'FotosobrasCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="FotosobrasCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

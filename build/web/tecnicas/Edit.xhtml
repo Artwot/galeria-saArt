@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TecnicasEditDlg" widgetVar="TecnicasEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditTecnicasTitle}">
+            <h:form id="TecnicasEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tecnicasController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditTecnicasLabel_id}" for="id" />
+                        <p:inputText id="id" disabled="true" value="#{tecnicasController.selected.id}" title="#{bundle.EditTecnicasTitle_id}" required="true" requiredMessage="#{bundle.EditTecnicasRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditTecnicasLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{tecnicasController.selected.nombre}" title="#{bundle.EditTecnicasTitle_nombre}" required="true" requiredMessage="#{bundle.EditTecnicasRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.EditTecnicasLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{tecnicasController.selected.descripcion}" title="#{bundle.EditTecnicasTitle_descripcion}" required="true" requiredMessage="#{bundle.EditTecnicasRequiredMessage_descripcion}"/>
+                        <p:outputLabel value="#{bundle.EditTecnicasLabel_status}" for="status" />
+                        <p:inputText id="status" value="#{tecnicasController.selected.status}" title="#{bundle.EditTecnicasTitle_status}" required="true" requiredMessage="#{bundle.EditTecnicasRequiredMessage_status}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tecnicasController.update}" value="#{bundle.Save}" update="display,:TecnicasListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TecnicasEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TecnicasEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

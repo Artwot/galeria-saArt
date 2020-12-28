@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TiposobraViewDlg" widgetVar="TiposobraViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewTiposobraTitle}">
+            <h:form id="TiposobraViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tiposobraController.selected != null}">
+                        <h:outputText value="#{bundle.ViewTiposobraLabel_id}"/>
+                        <h:outputText value="#{tiposobraController.selected.id}" title="#{bundle.ViewTiposobraTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewTiposobraLabel_nombre}"/>
+                        <h:outputText value="#{tiposobraController.selected.nombre}" title="#{bundle.ViewTiposobraTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewTiposobraLabel_descripcion}"/>
+                        <h:outputText value="#{tiposobraController.selected.descripcion}" title="#{bundle.ViewTiposobraTitle_descripcion}"/>
+                        <h:outputText value="#{bundle.ViewTiposobraLabel_status}"/>
+                        <h:outputText value="#{tiposobraController.selected.status}" title="#{bundle.ViewTiposobraTitle_status}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="TiposobraViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

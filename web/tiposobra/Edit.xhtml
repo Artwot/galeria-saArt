@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TiposobraEditDlg" widgetVar="TiposobraEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditTiposobraTitle}">
+            <h:form id="TiposobraEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tiposobraController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditTiposobraLabel_id}" for="id" />
+                        <p:inputText id="id" disabled="true" value="#{tiposobraController.selected.id}" title="#{bundle.EditTiposobraTitle_id}" required="true" requiredMessage="#{bundle.EditTiposobraRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditTiposobraLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{tiposobraController.selected.nombre}" title="#{bundle.EditTiposobraTitle_nombre}" required="true" requiredMessage="#{bundle.EditTiposobraRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.EditTiposobraLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{tiposobraController.selected.descripcion}" title="#{bundle.EditTiposobraTitle_descripcion}" required="true" requiredMessage="#{bundle.EditTiposobraRequiredMessage_descripcion}"/>
+                        <p:outputLabel value="#{bundle.EditTiposobraLabel_status}" for="status" />
+                        <p:inputText id="status" value="#{tiposobraController.selected.status}" title="#{bundle.EditTiposobraTitle_status}" required="true" requiredMessage="#{bundle.EditTiposobraRequiredMessage_status}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tiposobraController.update}" value="#{bundle.Save}" update="display,:TiposobraListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TiposobraEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TiposobraEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

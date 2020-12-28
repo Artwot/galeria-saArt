@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TarjetasclienteViewDlg" widgetVar="TarjetasclienteViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewTarjetasclienteTitle}">
+            <h:form id="TarjetasclienteViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tarjetasclienteController.selected != null}">
+                        <h:outputText value="#{bundle.ViewTarjetasclienteLabel_id}"/>
+                        <h:outputText value="#{tarjetasclienteController.selected.id}" title="#{bundle.ViewTarjetasclienteTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewTarjetasclienteLabel_nombrePropietario}"/>
+                        <h:outputText value="#{tarjetasclienteController.selected.nombrePropietario}" title="#{bundle.ViewTarjetasclienteTitle_nombrePropietario}"/>
+                        <h:outputText value="#{bundle.ViewTarjetasclienteLabel_numero}"/>
+                        <h:outputText value="#{tarjetasclienteController.selected.numero}" title="#{bundle.ViewTarjetasclienteTitle_numero}"/>
+                        <h:outputText value="#{bundle.ViewTarjetasclienteLabel_cvv}"/>
+                        <h:outputText value="#{tarjetasclienteController.selected.cvv}" title="#{bundle.ViewTarjetasclienteTitle_cvv}"/>
+                        <h:outputText value="#{bundle.ViewTarjetasclienteLabel_fechaExpiracion}"/>
+                        <h:outputText value="#{tarjetasclienteController.selected.fechaExpiracion}" title="#{bundle.ViewTarjetasclienteTitle_fechaExpiracion}"/>
+                        <h:outputText value="#{bundle.ViewTarjetasclienteLabel_status}"/>
+                        <h:outputText value="#{tarjetasclienteController.selected.status}" title="#{bundle.ViewTarjetasclienteTitle_status}"/>
+                        <h:outputText value="#{bundle.ViewTarjetasclienteLabel_idCliente}"/>
+                        <h:outputText value="#{tarjetasclienteController.selected.idCliente}" title="#{bundle.ViewTarjetasclienteTitle_idCliente}"/>
+                        <h:outputText value="#{bundle.ViewTarjetasclienteLabel_idServicio}"/>
+                        <h:outputText value="#{tarjetasclienteController.selected.idServicio}" title="#{bundle.ViewTarjetasclienteTitle_idServicio}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="TarjetasclienteViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ObrasViewDlg" widgetVar="ObrasViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewObrasTitle}">
+            <h:form id="ObrasViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{obrasController.selected != null}">
+                        <h:outputText value="#{bundle.ViewObrasLabel_id}"/>
+                        <h:outputText value="#{obrasController.selected.id}" title="#{bundle.ViewObrasTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewObrasLabel_nombre}"/>
+                        <h:outputText value="#{obrasController.selected.nombre}" title="#{bundle.ViewObrasTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewObrasLabel_descripcion}"/>
+                        <h:outputText value="#{obrasController.selected.descripcion}" title="#{bundle.ViewObrasTitle_descripcion}"/>
+                        <h:outputText value="#{bundle.ViewObrasLabel_anioCreacion}"/>
+                        <h:outputText value="#{obrasController.selected.anioCreacion}" title="#{bundle.ViewObrasTitle_anioCreacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewObrasLabel_medidas}"/>
+                        <h:outputText value="#{obrasController.selected.medidas}" title="#{bundle.ViewObrasTitle_medidas}"/>
+                        <h:outputText value="#{bundle.ViewObrasLabel_stock}"/>
+                        <h:outputText value="#{obrasController.selected.stock}" title="#{bundle.ViewObrasTitle_stock}"/>
+                        <h:outputText value="#{bundle.ViewObrasLabel_precio}"/>
+                        <h:outputText value="#{obrasController.selected.precio}" title="#{bundle.ViewObrasTitle_precio}"/>
+                        <h:outputText value="#{bundle.ViewObrasLabel_status}"/>
+                        <h:outputText value="#{obrasController.selected.status}" title="#{bundle.ViewObrasTitle_status}"/>
+                        <h:outputText value="#{bundle.ViewObrasLabel_idAutor}"/>
+                        <h:outputText value="#{obrasController.selected.idAutor}" title="#{bundle.ViewObrasTitle_idAutor}"/>
+                        <h:outputText value="#{bundle.ViewObrasLabel_idCorriente}"/>
+                        <h:outputText value="#{obrasController.selected.idCorriente}" title="#{bundle.ViewObrasTitle_idCorriente}"/>
+                        <h:outputText value="#{bundle.ViewObrasLabel_idTecnica}"/>
+                        <h:outputText value="#{obrasController.selected.idTecnica}" title="#{bundle.ViewObrasTitle_idTecnica}"/>
+                        <h:outputText value="#{bundle.ViewObrasLabel_idEstilo}"/>
+                        <h:outputText value="#{obrasController.selected.idEstilo}" title="#{bundle.ViewObrasTitle_idEstilo}"/>
+                        <h:outputText value="#{bundle.ViewObrasLabel_idTipo}"/>
+                        <h:outputText value="#{obrasController.selected.idTipo}" title="#{bundle.ViewObrasTitle_idTipo}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ObrasViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

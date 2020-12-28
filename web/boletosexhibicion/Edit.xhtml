@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="BoletosexhibicionEditDlg" widgetVar="BoletosexhibicionEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditBoletosexhibicionTitle}">
+            <h:form id="BoletosexhibicionEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{boletosexhibicionController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditBoletosexhibicionLabel_id}" for="id" />
+                        <p:inputText id="id" disabled="true" value="#{boletosexhibicionController.selected.id}" title="#{bundle.EditBoletosexhibicionTitle_id}" required="true" requiredMessage="#{bundle.EditBoletosexhibicionRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditBoletosexhibicionLabel_cantidad}" for="cantidad" />
+                        <p:inputText id="cantidad" value="#{boletosexhibicionController.selected.cantidad}" title="#{bundle.EditBoletosexhibicionTitle_cantidad}" required="true" requiredMessage="#{bundle.EditBoletosexhibicionRequiredMessage_cantidad}"/>
+                        <p:outputLabel value="#{bundle.EditBoletosexhibicionLabel_precio}" for="precio" />
+                        <p:inputText id="precio" value="#{boletosexhibicionController.selected.precio}" title="#{bundle.EditBoletosexhibicionTitle_precio}" required="true" requiredMessage="#{bundle.EditBoletosexhibicionRequiredMessage_precio}"/>
+                        <p:outputLabel value="#{bundle.EditBoletosexhibicionLabel_status}" for="status" />
+                        <p:inputText id="status" value="#{boletosexhibicionController.selected.status}" title="#{bundle.EditBoletosexhibicionTitle_status}" required="true" requiredMessage="#{bundle.EditBoletosexhibicionRequiredMessage_status}"/>
+                        <p:outputLabel value="#{bundle.EditBoletosexhibicionLabel_idExhibicion}" for="idExhibicion" />
+                        <p:selectOneMenu id="idExhibicion" value="#{boletosexhibicionController.selected.idExhibicion}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{exhibicionesController.itemsAvailableSelectOne}"
+                                           var="idExhibicionItem"
+                                           itemValue="#{idExhibicionItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{boletosexhibicionController.update}" value="#{bundle.Save}" update="display,:BoletosexhibicionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'BoletosexhibicionEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="BoletosexhibicionEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

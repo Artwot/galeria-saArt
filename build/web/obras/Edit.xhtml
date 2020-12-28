@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ObrasEditDlg" widgetVar="ObrasEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditObrasTitle}">
+            <h:form id="ObrasEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{obrasController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditObrasLabel_id}" for="id" />
+                        <p:inputText id="id" disabled="true" value="#{obrasController.selected.id}" title="#{bundle.EditObrasTitle_id}" required="true" requiredMessage="#{bundle.EditObrasRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditObrasLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{obrasController.selected.nombre}" title="#{bundle.EditObrasTitle_nombre}" required="true" requiredMessage="#{bundle.EditObrasRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.EditObrasLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{obrasController.selected.descripcion}" title="#{bundle.EditObrasTitle_descripcion}" required="true" requiredMessage="#{bundle.EditObrasRequiredMessage_descripcion}"/>
+                        <p:outputLabel value="#{bundle.EditObrasLabel_anioCreacion}" for="anioCreacion" />
+                        <p:calendar id="anioCreacion" pattern="MM/dd/yyyy" value="#{obrasController.selected.anioCreacion}" title="#{bundle.EditObrasTitle_anioCreacion}" required="true" requiredMessage="#{bundle.EditObrasRequiredMessage_anioCreacion}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditObrasLabel_medidas}" for="medidas" />
+                        <p:inputText id="medidas" value="#{obrasController.selected.medidas}" title="#{bundle.EditObrasTitle_medidas}" required="true" requiredMessage="#{bundle.EditObrasRequiredMessage_medidas}"/>
+                        <p:outputLabel value="#{bundle.EditObrasLabel_stock}" for="stock" />
+                        <p:inputText id="stock" value="#{obrasController.selected.stock}" title="#{bundle.EditObrasTitle_stock}" required="true" requiredMessage="#{bundle.EditObrasRequiredMessage_stock}"/>
+                        <p:outputLabel value="#{bundle.EditObrasLabel_precio}" for="precio" />
+                        <p:inputText id="precio" value="#{obrasController.selected.precio}" title="#{bundle.EditObrasTitle_precio}" required="true" requiredMessage="#{bundle.EditObrasRequiredMessage_precio}"/>
+                        <p:outputLabel value="#{bundle.EditObrasLabel_status}" for="status" />
+                        <p:inputText id="status" value="#{obrasController.selected.status}" title="#{bundle.EditObrasTitle_status}" required="true" requiredMessage="#{bundle.EditObrasRequiredMessage_status}"/>
+                        <p:outputLabel value="#{bundle.EditObrasLabel_idAutor}" for="idAutor" />
+                        <p:selectOneMenu id="idAutor" value="#{obrasController.selected.idAutor}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{autoresController.itemsAvailableSelectOne}"
+                                           var="idAutorItem"
+                                           itemValue="#{idAutorItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditObrasLabel_idCorriente}" for="idCorriente" />
+                        <p:selectOneMenu id="idCorriente" value="#{obrasController.selected.idCorriente}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{corrientesartController.itemsAvailableSelectOne}"
+                                           var="idCorrienteItem"
+                                           itemValue="#{idCorrienteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditObrasLabel_idTecnica}" for="idTecnica" />
+                        <p:selectOneMenu id="idTecnica" value="#{obrasController.selected.idTecnica}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{tecnicasController.itemsAvailableSelectOne}"
+                                           var="idTecnicaItem"
+                                           itemValue="#{idTecnicaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditObrasLabel_idEstilo}" for="idEstilo" />
+                        <p:selectOneMenu id="idEstilo" value="#{obrasController.selected.idEstilo}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{estilosController.itemsAvailableSelectOne}"
+                                           var="idEstiloItem"
+                                           itemValue="#{idEstiloItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditObrasLabel_idTipo}" for="idTipo" />
+                        <p:selectOneMenu id="idTipo" value="#{obrasController.selected.idTipo}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{tiposobraController.itemsAvailableSelectOne}"
+                                           var="idTipoItem"
+                                           itemValue="#{idTipoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{obrasController.update}" value="#{bundle.Save}" update="display,:ObrasListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ObrasEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ObrasEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

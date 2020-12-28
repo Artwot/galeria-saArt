@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+        <ui:composition template="/template/template_crud.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListGaleriasTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="GaleriasListForm">
+                <p:panel header="#{bundle.ListGaleriasTitle}">
+                    <p:dataTable id="datalist" value="#{galeriasController.itemsEliminados}" var="item"
+                                 selectionMode="single" selection="#{galeriasController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.id}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="restaurarButton"/>
+                        <p:ajax event="rowUnselect" update="restaurarButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListGaleriasTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListGaleriasTitle_nombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombre}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListGaleriasTitle_calle}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.calle}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListGaleriasTitle_numExt}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numExt}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListGaleriasTitle_colonia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.colonia}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListGaleriasTitle_cp}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cp}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListGaleriasTitle_telefono}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telefono}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListGaleriasTitle_web}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.web}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListGaleriasTitle_horario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.horario}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListGaleriasTitle_status}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.status}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListGaleriasTitle_idPais}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idPais}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListGaleriasTitle_idEntidad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idEntidad}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListGaleriasTitle_idMunicipio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idMunicipio}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="restaurarButton" icon="ui-icon-trash"  value="Restaurar Elemento" actionListener="#{galeriasController.restaurar}" update=":growl,datalist" disabled="#{empty galeriasController.selected}"/>
+                            <h:link outcome="/galerias/List" value="Consultar Galerías" class="button"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

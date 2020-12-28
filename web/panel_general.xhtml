@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title><ui:insert name="title">Galería SaArt</ui:insert></title>
+        <h:outputStylesheet library="css" name="components.css"/>
+        <h:outputStylesheet library="css" name="icons.css"/>
+        <h:outputStylesheet library="css" name="responsee.css"/>
+        <h:outputStylesheet name="assets/owl-carousel/owl.carousel.css" />
+        <h:outputStylesheet name="assets/owl-carousel/owl.theme.css" />
+
+        <!-- CUSTOM STYLE -->
+        <h:outputStylesheet library="css" name="template-style.css" />
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,400,600,900&subset;=latin-ext" rel="stylesheet" type="text/css" />
+        <h:outputScript library="js" name="jquery-1.8.3.min.js"/>
+        <h:outputScript library="js" name="jquery-ui.min.js"/>
+    </h:head>
+
+    <h:body class="size-1140">
+        <header
+            role="banner"
+            class="position-absolute margin-top-30 margin-m-top-0 margin-s-top-0"
+            > 
+            <!-- Top Navigation -->
+            <nav
+                class="background-transparent background-transparent-hightlight full-width sticky"
+                >
+                <div class="s-12 l-2">
+                    <a href="index.html" class="logo">
+                        <!-- Logo version before sticky nav -->
+                        <h:graphicImage class="logo-before" name="assets/img/logo-dark.png" />
+                        <!-- Logo version after sticky nav -->
+                        <h:graphicImage class="logo-after" name="assets/img/logo-dark.png" />
+                    </a>
+                </div>
+                <div class="s-12 l-10">
+                    <div class="top-nav right">
+                        <p class="nav-text"></p>
+                        <ul class="right chevron">
+                            <li>
+                                <h:link outcome="/index" value="Inicio" />
+                            </li>
+                            <li>
+                                <h:link outcome="/index" value="CRUD's" />
+                            </li>
+                            <li>
+                                <h:link outcome="/index" value="Galerias" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        
+        <p:growl id="growl" life="1000" />
+
+        <!-- MAIN -->
+        <main role="main">
+            <!-- Content -->
+            <article>
+                <header class="section background-white">
+                    <div class="line text-center">
+                        <h1 class="text-dark text-s-size-30 text-m-size-40 text-l-size-headline text-thin text-line-height-1">
+                            Panel de usuarios administradores
+                        </h1>
+                        <p class="margin-bottom-0 text-size-16 text-dark">
+                            Este es el panel principal para la administración de la página de Galería SaArt <br />
+                            Por favor, seleccione una opción para ver su contenido.
+                        </p>
+                    </div>
+                </header>
+                <section class="background-white">
+                    <div class="line">
+                        <div class="margin">
+                            <!--Panel del Administrador-->
+                            <div class="s-12 m-12 l-4 margin-m-bottom">
+                                <a class="image-hover-zoom margin-bottom" href="panel_admin.xhtml"><h:graphicImage name="assets/img/panel_admin.jpg"/></a>
+                                <h2>Panel del Administrador</h2>
+                                <p class="margin-bottom">Administre los aspectos generales de la página, como la lista de países, usuarios, etcétera. Puede acceder y modificar las tablas que se crean convenientes.</p>                
+                            </div>
+                            <!--Panel del Curador-->
+                            <div class="s-12 m-12 l-4 margin-m-bottom">
+                                <a class="image-hover-zoom margin-bottom" href="panel_general.xhtml"><h:graphicImage name="assets/img/panel_curador.jpg" /></a>
+                                <h2>Panel del Curador</h2>
+                                <p class="margin-bottom">Acceda a la información referente con aspectos de la galería, como la lista de obras, artistas, galerías adjuntas, etcétera. </p>                 
+                            </div>
+                            <!--Panel del Vendedor-->
+                            <div class="s-12 m-12 l-4 margin-m-bottom">
+                                <a class="image-hover-zoom margin-bottom" href="/"><h:graphicImage name="assets/img/panel_vendedor.jpg" /></a>
+                                <h2>Panel del Vendedor</h2>
+                                <p class="margin-bottom">Acceda a la administración de las ventas hechas en la página de la galería, puede consultar el estado de las mismas y el estado de los envíos. </p>                 
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </main>
+        
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <!-- FOOTER -->
+        <footer>
+            <!-- Contact Us -->
+            <div class="background-dark padding text-center footer-social">
+                <a class="margin-right-10" target="_blank" href="https://www.facebook.com"><i class="icon-facebook_circle text-size-30"></i> <span class="text-strong text-white hide-s hide-m">FACEBOOK</span></a>
+                <a class="margin-right-10" target="_blank" href="https://www.twitter.com"><i class="icon-twitter_circle text-size-30"></i> <span class="text-strong text-white hide-s hide-m">TWITTER</span></a>
+                <a class="margin-right-10" target="_blank" href="https://www.instagram.com"><i class="icon-instagram_circle text-size-30"></i> <span class="text-strong text-white hide-s hide-m">INSTAGRAM</span></a>
+                <a target="_blank" href="https://www.linkedin.com"><i class="icon-linked_in_circle text-size-30"></i> <span class="text-strong text-white hide-s hide-m">LINKEDIN</span></a>                                                                         
+            </div>
+
+
+            <!-- Main Footer -->
+            <section class="section-small-padding text-center background-dark full-width">
+                <div class="line">
+                    <div class="margin">
+                        <!-- Collumn 1 -->     
+                        <div class="s-12 m-12 l-4 margin-m-bottom-30">
+                            <h3 class="text-size-16">Company Address</h3>
+                            <p class="text-size-14">
+                                Responsive Street 7<br />
+                                London - United Kingdom<br /> 
+                                Europe
+                            </p>
+                        </div>
+                        <!-- Collumn 2 -->
+                        <div class="s-12 m-12 l-4 margin-m-bottom-30">
+                            <h3 class="text-size-16">E-mail</h3>
+                            <p class="text-size-14">
+                                contact@sampledomain.com<br />
+                                office@sampledomain.com
+                            </p>              
+                        </div>
+                        <!-- Collumn 3 -->
+                        <div class="s-12 m-12 l-4 ">
+                            <h3 class="text-size-16">Phone Numbers</h3>
+                            <p class="text-size-14">
+                                0800 4521 800 50<br />
+                                0450 5896 625 16<br />
+                                0798 6546 465 15
+                            </p>             
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <hr class="break margin-top-bottom-0" style="border-color: rgba(0, 0, 0, 0.80);" />
+
+            <!-- Bottom Footer -->
+            <section class="padding background-dark full-width">
+                <div class="text-center">
+                    <p class="text-size-12">Copyright 2019, Vision Design - graphic zoo</p>
+                    <p class="text-size-12">All images is purchased from Bigstock. Do not use the images in your website.</p>
+                </div>
+            </section>
+        </footer>
+
+
+        <h:outputScript library="js" name="responsee.js"/>
+        <h:outputScript library="js" name="jquery.events.touch.js"/>
+        <h:outputScript name="assets/owl-carousel/owl.carousel.js"/>
+        <h:outputScript library="js" name="jquery.events.touch.js"/>
+        <h:outputScript library="js" name="template-scripts.js"/>
+    </h:body>
+</html>
+

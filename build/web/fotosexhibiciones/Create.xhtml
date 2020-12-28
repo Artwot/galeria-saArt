@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FotosexhibicionesCreateDlg" widgetVar="FotosexhibicionesCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateFotosexhibicionesTitle}">
+            <h:form id="FotosexhibicionesCreateForm" enctype="multipart/form-data">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{fotosexhibicionesController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateFotosexhibicionesLabel_idExhibicion}" for="idExhibicion" />
+                        <p:selectOneMenu id="idExhibicion" value="#{fotosexhibicionesController.selected.idExhibicion}" >
+                            <f:selectItems value="#{exhibicionesController.itemsAvailableSelectOne}"
+                                           var="idExhibicionItem"
+                                           itemValue="#{idExhibicionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="Selecciona un archivo" for="foto" />
+                        <p:fileUpload id="foto" value="#{fotosexhibicionesController.foto}" mode="simple" allowTypes="/(\.|\/)(png|pdf|doc)$/1"/>
+                    </p:panelGrid>
+                    <p:inputText id="aux" value="#{fotosexhibicionesController.aux}" title="aux" type="hidden" />                    
+                    <p:commandButton 
+                        value="Guardar Archivo"
+                        action="#{fotosexhibicionesController.NuevoDocumento()}"
+                        ajax="false"
+                        update="display,:FotosexhibicionesListForm:datalist,:growl"
+                        />
+                    <p:commandButton value="#{bundle.Cancel}" onclick="FotosexhibicionesCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

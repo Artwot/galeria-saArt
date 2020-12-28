@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="template/template_crud.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="Panel de Administración"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <!-- ***** Chefs Area Starts ***** -->
+            <section class="section" id="chefs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 offset-lg-4 text-center">
+                            <div class="section-heading">
+                                <h2>Panel de Usuarios</h2>
+                                <h6>Por favor, seleccione una opción.</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="chef-item">
+                                <h:link outcome="/panel_admin">
+                                    <div class="thumb">
+                                        <h:graphicImage name="assets/images/panel_admin.jpeg" alt="Chef #1" />
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>Administrador</h4>
+                                        <span>Acceda a información relevante para la administración de la página web.</span>
+                                    </div>
+                                </h:link>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="chef-item">
+                                <h:link outcome="/panel_curador">
+                                    <div class="thumb">
+                                        <h:graphicImage name="assets/images/panel_curador.jpg" alt="Chef #2" />
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>Curador de la galería</h4>
+                                        <span>Acceda y administre los datos referentes a la galería, como artistas, obras, exhibiciones, etc.</span>
+                                    </div>
+                                </h:link>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="chef-item">
+                                <div class="thumb">
+                                    <h:graphicImage name="assets/images/panel_ventas1.jpg" alt="Chef #3" />
+                                </div>
+                                <div class="down-content">
+                                    <h4>Vendedor</h4>
+                                    <span>Acceda a los detalles de las ventas hechas en la página, así como el estado de envío.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <br />
+                <br />
+            </section>
+            <!-- ***** Chefs Area Ends ***** -->
+        </ui:define>
+    </ui:composition>
+
+</html>
+

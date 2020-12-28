@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TarjetasclienteEditDlg" widgetVar="TarjetasclienteEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditTarjetasclienteTitle}">
+            <h:form id="TarjetasclienteEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tarjetasclienteController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditTarjetasclienteLabel_id}" for="id" />
+                        <p:inputText id="id" disabled="true" value="#{tarjetasclienteController.selected.id}" title="#{bundle.EditTarjetasclienteTitle_id}" required="true" requiredMessage="#{bundle.EditTarjetasclienteRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditTarjetasclienteLabel_nombrePropietario}" for="nombrePropietario" />
+                        <p:inputText id="nombrePropietario" value="#{tarjetasclienteController.selected.nombrePropietario}" title="#{bundle.EditTarjetasclienteTitle_nombrePropietario}" required="true" requiredMessage="#{bundle.EditTarjetasclienteRequiredMessage_nombrePropietario}"/>
+                        <p:outputLabel value="#{bundle.EditTarjetasclienteLabel_numero}" for="numero" />
+                        <p:inputText id="numero" value="#{tarjetasclienteController.selected.numero}" title="#{bundle.EditTarjetasclienteTitle_numero}" required="true" requiredMessage="#{bundle.EditTarjetasclienteRequiredMessage_numero}"/>
+                        <p:outputLabel value="#{bundle.EditTarjetasclienteLabel_cvv}" for="cvv" />
+                        <p:inputText id="cvv" value="#{tarjetasclienteController.selected.cvv}" title="#{bundle.EditTarjetasclienteTitle_cvv}" required="true" requiredMessage="#{bundle.EditTarjetasclienteRequiredMessage_cvv}"/>
+                        <p:outputLabel value="#{bundle.EditTarjetasclienteLabel_fechaExpiracion}" for="fechaExpiracion" />
+                        <p:inputText id="fechaExpiracion" value="#{tarjetasclienteController.selected.fechaExpiracion}" title="#{bundle.EditTarjetasclienteTitle_fechaExpiracion}" required="true" requiredMessage="#{bundle.EditTarjetasclienteRequiredMessage_fechaExpiracion}"/>
+                        <p:outputLabel value="#{bundle.EditTarjetasclienteLabel_status}" for="status" />
+                        <p:inputText id="status" value="#{tarjetasclienteController.selected.status}" title="#{bundle.EditTarjetasclienteTitle_status}" required="true" requiredMessage="#{bundle.EditTarjetasclienteRequiredMessage_status}"/>
+                        <p:outputLabel value="#{bundle.EditTarjetasclienteLabel_idCliente}" for="idCliente" />
+                        <p:selectOneMenu id="idCliente" value="#{tarjetasclienteController.selected.idCliente}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{usuariosController.itemsAvailableSelectOne}"
+                                           var="idClienteItem"
+                                           itemValue="#{idClienteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditTarjetasclienteLabel_idServicio}" for="idServicio" />
+                        <p:selectOneMenu id="idServicio" value="#{tarjetasclienteController.selected.idServicio}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{serviciosfinancierosController.itemsAvailableSelectOne}"
+                                           var="idServicioItem"
+                                           itemValue="#{idServicioItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tarjetasclienteController.update}" value="#{bundle.Save}" update="display,:TarjetasclienteListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TarjetasclienteEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TarjetasclienteEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

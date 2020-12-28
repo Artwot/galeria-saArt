@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="GaleriasViewDlg" widgetVar="GaleriasViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewGaleriasTitle}">
+            <h:form id="GaleriasViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{galeriasController.selected != null}">
+                        <h:outputText value="#{bundle.ViewGaleriasLabel_id}"/>
+                        <h:outputText value="#{galeriasController.selected.id}" title="#{bundle.ViewGaleriasTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewGaleriasLabel_nombre}"/>
+                        <h:outputText value="#{galeriasController.selected.nombre}" title="#{bundle.ViewGaleriasTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewGaleriasLabel_calle}"/>
+                        <h:outputText value="#{galeriasController.selected.calle}" title="#{bundle.ViewGaleriasTitle_calle}"/>
+                        <h:outputText value="#{bundle.ViewGaleriasLabel_numExt}"/>
+                        <h:outputText value="#{galeriasController.selected.numExt}" title="#{bundle.ViewGaleriasTitle_numExt}"/>
+                        <h:outputText value="#{bundle.ViewGaleriasLabel_colonia}"/>
+                        <h:outputText value="#{galeriasController.selected.colonia}" title="#{bundle.ViewGaleriasTitle_colonia}"/>
+                        <h:outputText value="#{bundle.ViewGaleriasLabel_cp}"/>
+                        <h:outputText value="#{galeriasController.selected.cp}" title="#{bundle.ViewGaleriasTitle_cp}"/>
+                        <h:outputText value="#{bundle.ViewGaleriasLabel_telefono}"/>
+                        <h:outputText value="#{galeriasController.selected.telefono}" title="#{bundle.ViewGaleriasTitle_telefono}"/>
+                        <h:outputText value="#{bundle.ViewGaleriasLabel_web}"/>
+                        <h:outputText value="#{galeriasController.selected.web}" title="#{bundle.ViewGaleriasTitle_web}"/>
+                        <h:outputText value="#{bundle.ViewGaleriasLabel_horario}"/>
+                        <h:outputText value="#{galeriasController.selected.horario}" title="#{bundle.ViewGaleriasTitle_horario}"/>
+                        <h:outputText value="#{bundle.ViewGaleriasLabel_status}"/>
+                        <h:outputText value="#{galeriasController.selected.status}" title="#{bundle.ViewGaleriasTitle_status}"/>
+                        <h:outputText value="#{bundle.ViewGaleriasLabel_idPais}"/>
+                        <h:outputText value="#{galeriasController.selected.idPais}" title="#{bundle.ViewGaleriasTitle_idPais}"/>
+                        <h:outputText value="#{bundle.ViewGaleriasLabel_idEntidad}"/>
+                        <h:outputText value="#{galeriasController.selected.idEntidad}" title="#{bundle.ViewGaleriasTitle_idEntidad}"/>
+                        <h:outputText value="#{bundle.ViewGaleriasLabel_idMunicipio}"/>
+                        <h:outputText value="#{galeriasController.selected.idMunicipio}" title="#{bundle.ViewGaleriasTitle_idMunicipio}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="GaleriasViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

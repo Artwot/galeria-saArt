@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ObrasenexhibicionEditDlg" widgetVar="ObrasenexhibicionEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditObrasenexhibicionTitle}">
+            <h:form id="ObrasenexhibicionEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{obrasenexhibicionController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditObrasenexhibicionLabel_id}" for="id" />
+                        <p:inputText id="id" disabled="true" value="#{obrasenexhibicionController.selected.id}" title="#{bundle.EditObrasenexhibicionTitle_id}" required="true" requiredMessage="#{bundle.EditObrasenexhibicionRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditObrasenexhibicionLabel_status}" for="status" />
+                        <p:inputText id="status" value="#{obrasenexhibicionController.selected.status}" title="#{bundle.EditObrasenexhibicionTitle_status}" required="true" requiredMessage="#{bundle.EditObrasenexhibicionRequiredMessage_status}"/>
+                        <p:outputLabel value="#{bundle.EditObrasenexhibicionLabel_idExhibicion}" for="idExhibicion" />
+                        <p:selectOneMenu id="idExhibicion" value="#{obrasenexhibicionController.selected.idExhibicion}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{exhibicionesController.itemsAvailableSelectOne}"
+                                           var="idExhibicionItem"
+                                           itemValue="#{idExhibicionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditObrasenexhibicionLabel_idObra}" for="idObra" />
+                        <p:selectOneMenu id="idObra" value="#{obrasenexhibicionController.selected.idObra}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{obrasController.itemsAvailableSelectOne}"
+                                           var="idObraItem"
+                                           itemValue="#{idObraItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{obrasenexhibicionController.update}" value="#{bundle.Save}" update="display,:ObrasenexhibicionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ObrasenexhibicionEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ObrasenexhibicionEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

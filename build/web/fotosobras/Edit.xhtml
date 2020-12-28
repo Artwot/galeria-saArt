@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FotosobrasEditDlg" widgetVar="FotosobrasEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditFotosobrasTitle}">
+            <h:form id="FotosobrasEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{fotosobrasController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditFotosobrasLabel_id}" for="id" />
+                        <p:inputText id="id" disabled="true" value="#{fotosobrasController.selected.id}" title="#{bundle.EditFotosobrasTitle_id}" required="true" requiredMessage="#{bundle.EditFotosobrasRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditFotosobrasLabel_ruta}" for="ruta" />
+                        <p:inputText id="ruta" value="#{fotosobrasController.selected.ruta}" title="#{bundle.EditFotosobrasTitle_ruta}" required="true" requiredMessage="#{bundle.EditFotosobrasRequiredMessage_ruta}"/>
+                        <p:outputLabel value="#{bundle.EditFotosobrasLabel_status}" for="status" />
+                        <p:inputText id="status" value="#{fotosobrasController.selected.status}" title="#{bundle.EditFotosobrasTitle_status}" required="true" requiredMessage="#{bundle.EditFotosobrasRequiredMessage_status}"/>
+                        <p:outputLabel value="#{bundle.EditFotosobrasLabel_idObra}" for="idObra" />
+                        <p:selectOneMenu id="idObra" value="#{fotosobrasController.selected.idObra}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{obrasController.itemsAvailableSelectOne}"
+                                           var="idObraItem"
+                                           itemValue="#{idObraItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{fotosobrasController.update}" value="#{bundle.Save}" update="display,:FotosobrasListForm:datalist,:growl" oncomplete="handleSubmit(args, 'FotosobrasEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="FotosobrasEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

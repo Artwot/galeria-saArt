@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AutoresEditDlg" widgetVar="AutoresEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditAutoresTitle}">
+            <h:form id="AutoresEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{autoresController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditAutoresLabel_id}" for="id" />
+                        <p:inputText id="id" disabled="true" value="#{autoresController.selected.id}" title="#{bundle.EditAutoresTitle_id}" required="true" requiredMessage="#{bundle.EditAutoresRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditAutoresLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{autoresController.selected.nombre}" title="#{bundle.EditAutoresTitle_nombre}" required="true" requiredMessage="#{bundle.EditAutoresRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.EditAutoresLabel_apellido}" for="apellido" />
+                        <p:inputText id="apellido" value="#{autoresController.selected.apellido}" title="#{bundle.EditAutoresTitle_apellido}" required="true" requiredMessage="#{bundle.EditAutoresRequiredMessage_apellido}"/>
+                        <p:outputLabel value="#{bundle.EditAutoresLabel_informacion}" for="informacion" />
+                        <p:inputText id="informacion" value="#{autoresController.selected.informacion}" title="#{bundle.EditAutoresTitle_informacion}" required="true" requiredMessage="#{bundle.EditAutoresRequiredMessage_informacion}"/>
+                        <p:outputLabel value="#{bundle.EditAutoresLabel_autorHistorico}" for="autorHistorico" />
+                        <p:selectBooleanCheckbox id="autorHistorico" value="#{autoresController.selected.autorHistorico}" required="true" requiredMessage="#{bundle.EditAutoresRequiredMessage_autorHistorico}"/>
+                        <p:outputLabel value="#{bundle.EditAutoresLabel_status}" for="status" />
+                        <p:inputText id="status" value="#{autoresController.selected.status}" title="#{bundle.EditAutoresTitle_status}" required="true" requiredMessage="#{bundle.EditAutoresRequiredMessage_status}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{autoresController.update}" value="#{bundle.Save}" update="display,:AutoresListForm:datalist,:growl" oncomplete="handleSubmit(args, 'AutoresEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="AutoresEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
