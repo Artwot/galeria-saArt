@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="template/template_crud.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="Iniciar sesión"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <!-- ***** Main Banner Area Start ***** -->
+            <div id="top">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="left-content">
+                                <div class="inner-content">
+                                    <h4>Bienvenido</h4>
+                                    <h6>Iniciar Sesión</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="main-banner header-text">
+                                <div class="Modern-Slider">
+                                    <!-- Item -->
+                                    <div class="item">
+                                        <div class="img-fill">
+                                            <img src="../resources/assets/images/login_banner.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <!-- // Item -->
+                                    <!-- Item -->
+                                    <div class="item">
+                                        <div class="img-fill">
+                                            <img src="../resources/assets/images/login_banner2.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <!-- // Item -->
+                                    <!-- Item -->
+                                    <div class="item">
+                                        <div class="img-fill">
+                                            <img src="../resources/assets/images/login_banner3.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <!-- // Item -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ***** Main Banner Area End ***** -->
+            <div class="col-lg-12">
+                <h:form class="contact-form" id="contact">
+                    <!--<form id="contact" action="" method="post">-->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h4>Por favor, ingrese sus datos</h4>
+                        </div>
+                        <div class="col-lg-6 col-sm-12">
+                            <fieldset>
+                                <input name="name" type="text" id="name" placeholder="Nombre de usuario" required=""/>
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-6 col-sm-12">
+                            <fieldset>
+                                <input name="name" type="password" id="name" placeholder="Contraseña(6 caracteres mín.)*" required="" min="6"/>
+                            </fieldset>
+                        </div>
+                        <br />
+                        <div class="col-lg-6 col-lg-12">
+                            <fieldset>
+                                <button type="submit" id="form-submit" class="main-button-icon">Iniciar sesión</button>
+                            </fieldset>
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </ui:define>
+    </ui:composition>
+
+</html>
+

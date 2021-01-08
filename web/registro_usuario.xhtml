@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="template/template_crud.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="Registro"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <!-- ***** Reservation Us Area Starts ***** -->
+            <section class="section" id="reservation">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 align-self-center">
+                            <div class="left-text-content">
+                                <div class="section-heading">
+                                    <h6>Crear unca cuenta</h6>
+                                    <h2>Acceda a los beneficios de la galería SaArt</h2>
+                                </div>
+                                <p>Al crear una cuenta en la página de la galería, usted podrá adquirir las obras que se exponen a la venta al públco.</p>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="phone">
+                                            <i class="fa fa-phone"></i>
+                                            <h4>Phone Numbers</h4>
+                                            <span><a href="#">080-090-0990</a><br /><a href="#">080-090-0880</a></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="message">
+                                            <i class="fa fa-envelope"></i>
+                                            <h4>Emails</h4>
+                                            <span><a href="#">hello@company.com</a><br /><a href="#">info@company.com</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <h:form class="contact-form" id="contact">
+                                <!--<form id="contact" action="" method="post">-->
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <h4>Datos</h4>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12">
+                                        <fieldset>
+                                            <input name="name" type="text" id="name" placeholder="Nombre*" required=""/>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12">
+                                        <fieldset>
+                                            <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Dirección de correo*" required="" />
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12">
+                                        <fieldset>
+                                            <input name="ap_pat" type="text" id="ap_pat" placeholder="Apellido Paterno*" required="" />
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12">
+                                        <fieldset>
+                                            <input name="tel" type="text" id="tel" placeholder="Número de teléfono*" required="" />
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12">
+                                        <fieldset>
+                                            <input name="ap_mat" type="text" id="ap_mat" placeholder="Apellido Materno*" required=""/>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <fieldset>
+                                            <input name="ap_mat" type="tel" id="calle" placeholder="Calle*" required=""/>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div id="filterDate2">    
+                                            <div class="input-group date" data-date-format="dd/mm/yyyy">
+                                                <input  name="date" id="fecha_naci" type="text" class="form-control" placeholder="Fecha de nacimiento" />
+                                                <div class="input-group-addon" >
+                                                    <span class="glyphicon glyphicon-th"></span>
+                                                </div>
+                                            </div>
+                                        </div>   
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12">
+                                        <fieldset>
+                                            <input name="tel" type="number" id="tel" placeholder="# exterior*" required="" size="4"/>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <!--<p:selectOneMenu id="idPais" value="#{usuariosController.selected.idPais}" style="width:210px">
+                                            <f:selectItems value="#{paisesController.itemsAvailableSelectOne}" 
+                                                           itemValue="#{idPaisItem}" 
+                                                           var="idPaisItem"
+                                                           id="number-guests" />
+                                        </p:selectOneMenu>-->
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12">
+                                        <fieldset>
+                                            <input name="name" type="text" id="colonia" placeholder="Colonia*" required=""/>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <!--<p:selectOneMenu id="idEntidad" value="#{usuariosController.selected.idEntidad}" style="width:210px">
+                                            <f:selectItems value="#{entidadesController.itemsAvailableSelectOne}"
+                                                           var="idEntidadItem"
+                                                           itemValue="#{idEntidadItem}"/>
+                                        </p:selectOneMenu>-->
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12">
+                                        <fieldset>
+                                            <input name="tel" type="number" id="tel" placeholder="Código Postal*" required="" size="5"/>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12">
+                                        <fieldset>
+                                            <p:inputText styleClass="contact-form" type="text" id="username" placeholder="Nombre de usuario*"  required=""/>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12">
+                                        <fieldset>
+                                            <input name="name" type="password" id="name" placeholder="Contraseña(6 caracteres mín.)*" required="" min="6"/>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12">
+                                        <fieldset>
+                                            <button type="submit" id="form-submit" class="main-button-icon">Comprobar nombre</button>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12">
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12">
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <fieldset>
+                                            <button type="submit" id="form-submit" class="main-button-icon">Crear cuenta</button>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <!--</ form>-->
+
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ***** Reservation Area Ends ***** -->
+        </ui:define>
+    </ui:composition>
+
+</html>
+

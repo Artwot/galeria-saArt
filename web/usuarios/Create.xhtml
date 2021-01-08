@@ -11,7 +11,7 @@
         <p:dialog id="UsuariosCreateDlg" widgetVar="UsuariosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateUsuariosTitle}">
             <h:form id="UsuariosCreateForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{usuariosController.selected != null}">
+                    <p:panelGrid columns="4" rendered="#{usuariosController.selected != null}">
                         <p:outputLabel value="#{bundle.CreateUsuariosLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{usuariosController.selected.nombre}" title="#{bundle.CreateUsuariosTitle_nombre}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_nombre}"/>
                         <p:outputLabel value="#{bundle.CreateUsuariosLabel_apPat}" for="apPat" />
@@ -36,19 +36,19 @@
                         <p:inputText id="username" value="#{usuariosController.selected.username}" title="#{bundle.CreateUsuariosTitle_username}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_username}"/>
                         <p:outputLabel value="#{bundle.CreateUsuariosLabel_password}" for="password" />
                         <p:inputText id="password" value="#{usuariosController.selected.password}" title="#{bundle.CreateUsuariosTitle_password}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_password}"/>
-                        <p:outputLabel value="#{bundle.CreateUsuariosLabel_idPais}" for="idPais" />
+                        <p:outputLabel value="País:" for="idPais" />
                         <p:selectOneMenu id="idPais" value="#{usuariosController.selected.idPais}" >
                             <f:selectItems value="#{paisesController.itemsAvailableSelectOne}"
                                            var="idPaisItem"
                                            itemValue="#{idPaisItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateUsuariosLabel_idEntidad}" for="idEntidad" />
+                        <p:outputLabel value="Entidad:" for="idEntidad" />
                         <p:selectOneMenu id="idEntidad" value="#{usuariosController.selected.idEntidad}" >
                             <f:selectItems value="#{entidadesController.itemsAvailableSelectOne}"
                                            var="idEntidadItem"
                                            itemValue="#{idEntidadItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateUsuariosLabel_idTipoUsu}" for="idTipoUsu" />
+                        <p:outputLabel value="Tipo de Usuario" for="idTipoUsu" />
                         <p:selectOneMenu id="idTipoUsu" value="#{usuariosController.selected.idTipoUsu}" >
                             <f:selectItems value="#{tiposusuarioController.itemsAvailableSelectOne}"
                                            var="idTipoUsuItem"
