@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="template/template_vendedor.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="Panel del Vendedor"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <!-- ***** Chefs Area Starts ***** -->
+            <section class="section" id="chefs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 offset-lg-4 text-center">
+                            <div class="section-heading">
+                                <h2>Bienvenido</h2>
+                                <h6>Por favor, seleccione una opción.</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h:link outcome="/ventas/List">
+                                <div class="chef-item">
+                                    <div class="thumb">
+                                        <h:graphicImage name="assets/images/panel/panel_ventas.jpg" alt="Chef #1" />
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>Ventas</h4>
+                                        <span>CRUD's Ventas<br/></span>
+                                    </div>
+                                </div>
+                            </h:link>
+                        </div>
+                        <br />
+
+                        <div class="col-lg-4">
+                            <h:link outcome="/detalleVenta/List">
+                                <div class="chef-item">
+                                    <div class="thumb">
+                                        <h:graphicImage name="assets/images/panel/panel_carrito.jpg" alt="Chef #2" />
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>Detalles de venta</h4>
+                                        <span>CRUD's Detalles de venta</span>
+                                    </div>
+                                </div>
+                            </h:link>
+                        </div>
+                        <br />
+
+                        <div class="col-lg-4">
+                            <h:link outcome="/serviciosfinancieros/List">
+                                <div class="chef-item">
+                                    <div class="thumb">
+                                        <h:graphicImage name="assets/images/panel/panel_servfin.jpg" alt="Chef #2" />
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>Servicios Financieros</h4>
+                                        <span>CRUD's Servicios</span>
+                                    </div>
+                                </div>
+                            </h:link>
+                        </div>
+                        <br />
+
+                    </div>
+                    <br />
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h:link outcome="/envios/List">
+                                <div class="chef-item">
+                                    <div class="thumb">
+                                        <h:graphicImage name="assets/images/panel/panel_envios.jpg" alt="Chef #1" />
+                                    </div>
+                                    <div class="down-content">
+                                        <h:link outcome="/envios/List">
+                                            <h4>Envíos</h4>
+                                            <span>CRUD's Envíos</span>
+                                        </h:link>
+                                    </div>
+                                </div>
+                            </h:link>
+                        </div>
+                        <div class="col-lg-4">
+                            <h:link outcome="/tarjetascliente/List">
+                                <div class="chef-item">
+                                    <div class="thumb">
+                                        <h:graphicImage name="assets/images/panel/panel_tarjeta.jpg" alt="Chef #2" />
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>Tarjetas Registradas</h4>
+                                        <span>CRUD's Tarjetas</span>
+                                    </div>
+                                </div>
+                            </h:link>
+                        </div>
+                        <div class="col-lg-4">
+                            <h:link outcome="/tipospago/List">
+                                <div class="chef-item">
+                                    <div class="thumb">
+                                        <h:graphicImage name="assets/images/panel/panel_pagos.jpg" alt="Chef #3" />
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>Tipos de pago</h4>
+                                        <span>CRUD's Pagos.</span>
+                                    </div>
+                                </div>
+                            </h:link>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ***** Chefs Area Ends ***** -->
+        </ui:define>
+    </ui:composition>
+
+</html>
+

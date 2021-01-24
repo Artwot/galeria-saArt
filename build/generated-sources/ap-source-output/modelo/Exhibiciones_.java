@@ -10,7 +10,7 @@ import modelo.Fotosexhibiciones;
 import modelo.Galerias;
 import modelo.Obrasenexhibicion;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2021-01-08T13:36:16")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2021-01-23T18:48:40")
 @StaticMetamodel(Exhibiciones.class)
 public class Exhibiciones_ { 
 

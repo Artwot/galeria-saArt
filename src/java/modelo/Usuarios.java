@@ -39,6 +39,7 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Usuarios.findById", query = "SELECT u FROM Usuarios u WHERE u.id = :id")
     , @NamedQuery(name = "Usuarios.activos", query = "SELECT u FROM Usuarios u WHERE u.status = 1")
     , @NamedQuery(name = "Usuarios.eliminados", query = "SELECT u FROM Usuarios u WHERE u.status = 0")
+    , @NamedQuery(name = "Usuarios.buscar", query = "SELECT u FROM Usuarios u WHERE u.username = :username and u.password = :password")
     , @NamedQuery(name = "Usuarios.findByNombre", query = "SELECT u FROM Usuarios u WHERE u.nombre = :nombre")
     , @NamedQuery(name = "Usuarios.findByApPat", query = "SELECT u FROM Usuarios u WHERE u.apPat = :apPat")
     , @NamedQuery(name = "Usuarios.findByApMat", query = "SELECT u FROM Usuarios u WHERE u.apMat = :apMat")
@@ -50,6 +51,7 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Usuarios.findByCp", query = "SELECT u FROM Usuarios u WHERE u.cp = :cp")
     , @NamedQuery(name = "Usuarios.findByFechaNaci", query = "SELECT u FROM Usuarios u WHERE u.fechaNaci = :fechaNaci")
     , @NamedQuery(name = "Usuarios.findByUsername", query = "SELECT u FROM Usuarios u WHERE u.username = :username")
+    , @NamedQuery(name = "Usuarios.userName", query = "SELECT u.username FROM Usuarios u WHERE u.username = :username")
     , @NamedQuery(name = "Usuarios.findByPassword", query = "SELECT u FROM Usuarios u WHERE u.password = :password")
     , @NamedQuery(name = "Usuarios.findByStatus", query = "SELECT u FROM Usuarios u WHERE u.status = :status")})
 public class Usuarios implements Serializable {
@@ -171,10 +173,12 @@ public class Usuarios implements Serializable {
     }
 
     public String getNombre() {
+        System.out.println("Get");
         return nombre;
     }
 
     public void setNombre(String nombre) {
+        System.out.println("Set");
         this.nombre = nombre;
     }
 

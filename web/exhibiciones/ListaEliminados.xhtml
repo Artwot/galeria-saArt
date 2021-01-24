@@ -6,7 +6,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-        <ui:composition template="/template/template_crud.xhtml">
+    <ui:composition template="/template/template_curador.xhtml">
 
 
         <ui:define name="title">
@@ -15,7 +15,7 @@
 
         <ui:define name="body">
             <h:form id="ExhibicionesListForm">
-                <p:panel header="#{bundle.ListExhibicionesTitle}">
+                <p:panel header="Lista de eliminados">
                     <p:dataTable id="datalist" value="#{exhibicionesController.itemsEliminados}" var="item"
                                  selectionMode="single" selection="#{exhibicionesController.selected}"
                                  paginator="true"

@@ -5,7 +5,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="template/template_crud.xhtml">
+    <ui:composition template="template/template_curador.xhtml">
 
 
         <ui:define name="title">
@@ -39,11 +39,12 @@
                                 </div>
                             </h:link>
                         </div>
+                        <br />
                         <div class="col-lg-4">
                             <h:link outcome="/obras/List">
                                 <div class="chef-item">
                                     <div class="thumb">
-                                        <h:graphicImage name="assets/images/panel/panel_paises.jpg" alt="Chef #2" />
+                                        <h:graphicImage name="assets/images/panel/panel_obras.jpg" alt="Chef #2" />
                                     </div>
                                     <div class="down-content">
                                         <h4>Obras</h4>
@@ -52,63 +53,179 @@
                                 </div>
                             </h:link>
                         </div>
+                        <br />
                         <div class="col-lg-4">
-                            <h:link outcome="/entidades/List">
+                            <h:link outcome="/corrientesart/List">
                                 <div class="chef-item">
                                     <div class="thumb">
-                                        <h:graphicImage name="assets/images/panel/panel_ent.jpg" alt="Chef #2" />
+                                        <h:graphicImage name="assets/images/panel/panel_corrientes.jpg" alt="Chef #2" />
                                     </div>
                                     <div class="down-content">
-                                        <h4>Entidades</h4>
-                                        <span>CRUD's Entidades</span>
+                                        <h4>Corriente Art.</h4>
+                                        <span>CRUD's Corrientes Art.</span>
                                     </div>
                                 </div>
                             </h:link>
                         </div>
+                        <br />
                     </div>
+                    <br />
                     <div class="row">
                         <div class="col-lg-4">
-                            <h:link outcome="/municipios/List">
+                            <h:link outcome="/exhibiciones/List">
                                 <div class="chef-item">
                                     <div class="thumb">
-                                        <h:graphicImage name="assets/images/panel/panel_municipios.jpg" alt="Chef #1" />
+                                        <h:graphicImage name="assets/images/panel/panel_exhibiciones.jpg" alt="Chef #1" />
                                     </div>
                                     <div class="down-content">
-                                        <h:link outcome="/municipios/List">
-                                            <h4>Municipios</h4>
-                                            <span>CRUD's Municipios</span>
+                                        <h:link outcome="/exhibiciones/List">
+                                            <h4>Exhibiciones</h4>
+                                            <span>CRUD's Exhibiciones</span>
                                         </h:link>
                                     </div>
                                 </div>
                             </h:link>
                         </div>
+                        <br />
                         <div class="col-lg-4">
-                            <h:link outcome="/correos/List">
+                            <h:link outcome="/galerias/List">
                                 <div class="chef-item">
                                     <div class="thumb">
-                                        <h:graphicImage name="assets/images/panel/panel_mail.jpg" alt="Chef #2" />
+                                        <h:graphicImage name="assets/images/panel/panel_galerias.jpg" alt="Chef #2" />
                                     </div>
                                     <div class="down-content">
-                                        <h4>Correos</h4>
-                                        <span>CRUD's Correos</span>
+                                        <h4>Galerías</h4>
+                                        <span>CRUD's Galerías</span>
                                     </div>
                                 </div>
                             </h:link>
                         </div>
+                        <br />
                         <div class="col-lg-4">
-                            <h:link outcome="/paqueterias/List">
+                            <h:link outcome="/estilos/List">
                                 <div class="chef-item">
                                     <div class="thumb">
-                                        <h:graphicImage name="assets/images/panel/panel_paq.jpeg" alt="Chef #3" />
+                                        <h:graphicImage name="assets/images/panel/panel_estilos.jpg" alt="Chef #3" />
                                     </div>
                                     <div class="down-content">
-                                        <h4>Paqueterías</h4>
-                                        <span>CRUD's Paqueterías.</span>
+                                        <h4>Estilos Artísticos</h4>
+                                        <span>CRUD's Estilos.</span>
                                     </div>
                                 </div>
                             </h:link>
                         </div>
+                        <br />
                     </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h:link outcome="/fotosautores/List">
+                                <div class="chef-item">
+                                    <div class="thumb">
+                                        <h:graphicImage name="assets/images/panel/panel_fotosautores.jpg" alt="Chef #1" />
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>Fotos de Artistas</h4>
+                                        <span>CRUD's Fotos<br/></span>
+                                    </div>
+                                </div>
+                            </h:link>
+                        </div>
+                        <br />
+                        <div class="col-lg-4">
+                            <h:link outcome="/fotosobras/List">
+                                <div class="chef-item">
+                                    <div class="thumb">
+                                        <h:graphicImage name="assets/images/panel/panel_fotosobras.jpg" alt="Chef #2" />
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>Fotos de Obras</h4>
+                                        <span>CRUD's Fotos</span>
+                                    </div>
+                                </div>
+                            </h:link>
+                        </div>
+                        <br />
+                        <div class="col-lg-4">
+                            <h:link outcome="/fotosexhibiciones/List">
+                                <div class="chef-item">
+                                    <div class="thumb">
+                                        <h:graphicImage name="assets/images/panel/panel_fotosexhib.jpg" alt="Chef #2" />
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>Fotos de Exhibiciones</h4>
+                                        <span>CRUD's Fotos</span>
+                                    </div>
+                                </div>
+                            </h:link>
+                        </div>
+                        <br />
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h:link outcome="/tecnicas/List">
+                                <div class="chef-item">
+                                    <div class="thumb">
+                                        <h:graphicImage name="assets/images/panel/panel_tecnicas.jpg" alt="Chef #1" />
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>Técnica Artística</h4>
+                                        <span>CRUD's Técnicas<br/></span>
+                                    </div>
+                                </div>
+                            </h:link>
+                        </div>
+                        <br />
+                        <div class="col-lg-4">
+                            <h:link outcome="/tiposobra/List">
+                                <div class="chef-item">
+                                    <div class="thumb">
+                                        <h:graphicImage name="assets/images/panel/panel_tipos.jpg" alt="Chef #2" />
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>Tipo de obra</h4>
+                                        <span>CRUD's Tipos</span>
+                                    </div>
+                                </div>
+                            </h:link>
+                        </div>
+                        <br />
+                        <div class="col-lg-4">
+                            <h:link outcome="/boletosexhibicion/List">
+                                <div class="chef-item">
+                                    <div class="thumb">
+                                        <h:graphicImage name="assets/images/panel/panel_boletos.jpg" alt="Chef #2" />
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>Boletos de Exhibiciones</h4>
+                                        <span>CRUD's Boletos</span>
+                                    </div>
+                                </div>
+                            </h:link>
+                        </div>
+                        <br />
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h:link outcome="/obrasenexhibicion/List">
+                                <div class="chef-item">
+                                    <div class="thumb">
+                                        <h:graphicImage name="assets/images/panel/panel_obrenex.jpg" alt="Chef #1" />
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>Obras en exhibicón</h4>
+                                        <span>CRUD's Obras<br/></span>
+                                    </div>
+                                </div>
+                            </h:link>
+                        </div>
+                        <br />
+                        
+                        <br />
+                    </div>
+                    <br />
                 </div>
             </section>
             <!-- ***** Chefs Area Ends ***** -->

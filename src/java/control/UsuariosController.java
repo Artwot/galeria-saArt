@@ -17,6 +17,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import org.apache.commons.codec.digest.DigestUtils;
 
 @Named("usuariosController")
 @SessionScoped
@@ -28,6 +29,7 @@ public class UsuariosController implements Serializable {
     private List<Usuarios> itemsEliminados = null;
     private Usuarios selected;
 
+    /*Sección de prueba del AJAX de usuarios para paises, entidades y municipios. */
     public UsuariosController() {
     }
 
@@ -62,11 +64,29 @@ public class UsuariosController implements Serializable {
 
     public Usuarios prepareCreate() {
         selected = new Usuarios();
+        System.out.println(selected);
         initializeEmbeddableKey();
         return selected;
     }
 
     public void create() {
+        //Contraseña encriptada:
+        String pass = selected.getPassword();
+        String pass_enc = DigestUtils.sha1Hex(pass);
+        selected.setPassword(pass_enc);
+        selected.setStatus(1);
+        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("UsuariosCreated"));
+        if (!JsfUtil.isValidationFailed()) {
+            items = null;    // Invalidate list of items to trigger re-query.
+        }
+    }
+
+    public void createCliente(Usuarios cliente, UsuariosFacade usufacade) {
+        selected = cliente;
+        ejbFacade = usufacade;
+        String pass = selected.getPassword();
+        String pass_enc = DigestUtils.sha1Hex(pass);
+        selected.setPassword(pass_enc);
         selected.setStatus(1);
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("UsuariosCreated"));
         if (!JsfUtil.isValidationFailed()) {
@@ -81,7 +101,6 @@ public class UsuariosController implements Serializable {
     public void destroy() {
         selected.setStatus(0);
         persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("UsuariosUpdated"));
-        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("UsuariosDeleted"));
         if (!JsfUtil.isValidationFailed()) {
             selected = null; // Remove selection
             items = null;    // Invalidate list of items to trigger re-query.
@@ -110,6 +129,7 @@ public class UsuariosController implements Serializable {
             setEmbeddableKeys();
             try {
                 if (persistAction != PersistAction.DELETE) {
+                    System.out.println("Selected en el persist" + selected);
                     getFacade().edit(selected);
                 } else {
                     getFacade().remove(selected);

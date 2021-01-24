@@ -6,7 +6,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template/template_crud.xhtml">
+        <ui:composition template="/template/template_admin.xhtml">
 
 
         <ui:define name="title">
@@ -14,9 +14,6 @@
         </ui:define>
 
         <ui:define name="body">
-            
-            <br />
-            <br />
             <br />
             <br />
             <br />
@@ -27,7 +24,7 @@
             </div>
             
             <h:form id="PaisesListForm">
-                <p:panel>
+                <p:panel header="Lista de países">
                     <p:dataTable id="datalist" value="#{paisesController.items}" var="item"
                                  selectionMode="single" selection="#{paisesController.selected}"
                                  paginator="true"

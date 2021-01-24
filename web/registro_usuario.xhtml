@@ -4,7 +4,8 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
     <ui:composition template="template/template_crud.xhtml">
 
@@ -24,27 +25,14 @@
                                     <h6>Crear unca cuenta</h6>
                                     <h2>Acceda a los beneficios de la galería SaArt</h2>
                                 </div>
-                                <p>Al crear una cuenta en la página de la galería, usted podrá adquirir las obras que se exponen a la venta al públco.</p>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="phone">
-                                            <i class="fa fa-phone"></i>
-                                            <h4>Phone Numbers</h4>
-                                            <span><a href="#">080-090-0990</a><br /><a href="#">080-090-0880</a></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="message">
-                                            <i class="fa fa-envelope"></i>
-                                            <h4>Emails</h4>
-                                            <span><a href="#">hello@company.com</a><br /><a href="#">info@company.com</a></span>
-                                        </div>
-                                    </div>
+                                <p>Al crear una cuenta en la página de la galería, usted podrá adquirir las obras que se exponen a la venta al público.</p>
+                                <div class="row" align="center">
+                                    <h:graphicImage library="assets" name="/images/login.jpg" width="550px"/>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <h:form class="contact-form" id="contact">
+                            <h:form class="contact-form" id="contact" > 
                                 <!--<form id="contact" action="" method="post">-->
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -52,96 +40,208 @@
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
                                         <fieldset>
-                                            <input name="name" type="text" id="name" placeholder="Nombre*" required=""/>
+                                            <h:inputText
+                                                id="nombre" 
+                                                a:placeholder="Nombre*" 
+                                                required="true" 
+                                                requiredMessage="#{bundle.CreateUsuariosRequiredMessage_nombre}"
+                                                value="#{ajaxPaises.nombre}"
+                                                />
                                         </fieldset>
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
                                         <fieldset>
-                                            <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Dirección de correo*" required="" />
+                                            <h:inputText  
+                                                id="email" 
+                                                a:placeholder="Dirección de correo*" 
+                                                required="true" 
+                                                value="#{ajaxPaises.email}"/>
                                         </fieldset>
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
                                         <fieldset>
-                                            <input name="ap_pat" type="text" id="ap_pat" placeholder="Apellido Paterno*" required="" />
+                                            <h:inputText
+                                                id="ap_pat" 
+                                                a:placeholder="Apellido Paterno*" 
+                                                required="true" 
+                                                value="#{ajaxPaises.apPat}"/>
                                         </fieldset>
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
                                         <fieldset>
-                                            <input name="tel" type="text" id="tel" placeholder="Número de teléfono*" required="" />
+                                            <h:inputText 
+                                                p:type="tel" 
+                                                id="tel" 
+                                                a:placeholder="Número de teléfono*" 
+                                                required="true" 
+                                                value="#{ajaxPaises.telefono}"/>
                                         </fieldset>
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
                                         <fieldset>
-                                            <input name="ap_mat" type="text" id="ap_mat" placeholder="Apellido Materno*" required=""/>
+                                            <h:inputText 
+                                                id="ap_mat" 
+                                                a:placeholder="Apellido Materno*" 
+                                                required="true" 
+                                                value="#{ajaxPaises.apMat}"/>
                                         </fieldset>
                                     </div>
                                     <div class="col-md-6 col-sm-12">
                                         <fieldset>
-                                            <input name="ap_mat" type="tel" id="calle" placeholder="Calle*" required=""/>
+                                            <h:inputText 
+                                                id="calle" 
+                                                a:placeholder="Calle*" 
+                                                required="true" 
+                                                value="#{ajaxPaises.calle}"/>
                                         </fieldset>
                                     </div>
                                     <div class="col-lg-6">
-                                        <div id="filterDate2">    
-                                            <div class="input-group date" data-date-format="dd/mm/yyyy">
-                                                <input  name="date" id="fecha_naci" type="text" class="form-control" placeholder="Fecha de nacimiento" />
-                                                <div class="input-group-addon" >
-                                                    <span class="glyphicon glyphicon-th"></span>
-                                                </div>
-                                            </div>
-                                        </div>   
+                                        <p:calendar 
+                                            id="fechaNaci" 
+                                            pattern="MM/dd/yyyy" 
+                                            value="#{ajaxPaises.fechaNaci}" 
+                                            title="#{bundle.EditUsuariosTitle_fechaNaci}" 
+                                            placeholder="Fecha de nacimiento*"
+                                            showOn="button"/>
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
                                         <fieldset>
-                                            <input name="tel" type="number" id="tel" placeholder="# exterior*" required="" size="4"/>
+                                            <h:inputText 
+                                                p:type="number" 
+                                                id="no_ext" 
+                                                a:placeholder="# exterior*" 
+                                                required="true" 
+                                                size="4" 
+                                                value="#{ajaxPaises.noExt}"/>
                                         </fieldset>
                                     </div>
                                     <div class="col-md-6 col-sm-12">
-                                        <!--<p:selectOneMenu id="idPais" value="#{usuariosController.selected.idPais}" style="width:210px">
-                                            <f:selectItems value="#{paisesController.itemsAvailableSelectOne}" 
-                                                           itemValue="#{idPaisItem}" 
-                                                           var="idPaisItem"
-                                                           id="number-guests" />
-                                        </p:selectOneMenu>-->
+                                        <p:selectOneMenu 
+                                            id="idPais" 
+                                            value="#{ajaxPaises.id_pais}" 
+                                            filter="true"
+                                            style="width:210px; background-color: #fff;"
+                                            >
+                                            <f:selectItem 
+                                                itemValue="0" 
+                                                itemLabel="--Seleccionar país..."
+                                                />
+                                            <f:selectItems 
+                                                value="#{ajaxPaises.listPaises}"
+                                                />
+                                            <p:ajax 
+                                                event="change"
+                                                update="entidad"
+                                                listener="#{ajaxPaises.buscarEntidades}"
+                                                rendered="true"
+                                                />
+                                        </p:selectOneMenu>
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
                                         <fieldset>
-                                            <input name="name" type="text" id="colonia" placeholder="Colonia*" required=""/>
+                                            <h:inputText 
+                                                id="colonia" 
+                                                a:placeholder="Colonia*" 
+                                                required="true" 
+                                                value="#{ajaxPaises.colonia}"/>
                                         </fieldset>
                                     </div>
                                     <div class="col-md-6 col-sm-12">
-                                        <!--<p:selectOneMenu id="idEntidad" value="#{usuariosController.selected.idEntidad}" style="width:210px">
-                                            <f:selectItems value="#{entidadesController.itemsAvailableSelectOne}"
-                                                           var="idEntidadItem"
-                                                           itemValue="#{idEntidadItem}"/>
-                                        </p:selectOneMenu>-->
+                                        <p:selectOneMenu 
+                                            id="entidad"
+                                            value="#{ajaxPaises.id_entidad}"
+                                            filter="true"
+                                            style="width:210px;"
+                                            >
+                                            <f:selectItem 
+                                                itemValue="0" 
+                                                itemLabel="--Seleccionar entidad..."
+                                                />
+                                            <f:selectItems 
+                                                value="#{ajaxPaises.listEntidades}" 
+                                                />
+                                        </p:selectOneMenu>
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
                                         <fieldset>
-                                            <input name="tel" type="number" id="tel" placeholder="Código Postal*" required="" size="5"/>
+                                            <h:inputText 
+                                                id="cp" 
+                                                a:placeholder="Código Postal*" 
+                                                required="true" 
+                                                size="5" 
+                                                value="#{ajaxPaises.cp}"/>
                                         </fieldset>
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
                                         <fieldset>
-                                            <p:inputText styleClass="contact-form" type="text" id="username" placeholder="Nombre de usuario*"  required=""/>
+                                            <h:inputText 
+                                                styleClass="contact-form"
+                                                id="username" 
+                                                a:placeholder="Nombre de usuario*"  
+                                                required=""
+                                                value="#{ajaxPaises.username}"/>
                                         </fieldset>
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
                                         <fieldset>
-                                            <input name="name" type="password" id="name" placeholder="Contraseña(6 caracteres mín.)*" required="" min="6"/>
+                                            <h:panelGrid>
+                                                <h:inputSecret a:placeholder="Contraseña(min. 5 caracteres)"
+                                                               id="passwd"
+                                                               required=""
+                                                               value="#{ajaxPaises.password}"
+
+                                                               />
+                                                <f:ajax event="keyup"
+                                                        execute="passwd"
+                                                        listener="#{ajaxPaises.comprobarPasswd}"
+                                                        render="paswd_valida"            
+                                                        />
+                                            </h:panelGrid>
                                         </fieldset>
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
                                         <fieldset>
-                                            <button type="submit" id="form-submit" class="main-button-icon">Comprobar nombre</button>
+                                            <h:commandButton value="Comprobar nombre">
+                                                <f:ajax execute="username"
+                                                        render="user_salida"
+                                                        listener="#{ajaxPaises.consultarUsername}"
+                                                        />
+                                            </h:commandButton>
                                         </fieldset>
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
+                                        <fieldset>
+                                            <h:outputLabel id="paswd_valida" 
+                                                           value="#{ajaxPaises.msg}" 
+                                                           style="color: #{ajaxPaises.color}; align-content: center; font-size: 17px;" />
+                                        </fieldset>
                                     </div>
+                                    <br />
                                     <div class="col-lg-6 col-sm-12">
+                                        <fieldset>
+                                            <h:outputLabel id="user_salida" 
+                                                           value="#{ajaxPaises.nombreUsu}" 
+                                                           style="color: #{ajaxPaises.color}; align-content: center; font-size: 17px;" />
+                                        </fieldset>
                                     </div>
+                                    <br />
                                     <div class="col-lg-12">
                                         <fieldset>
-                                            <button type="submit" id="form-submit" class="main-button-icon">Crear cuenta</button>
+                                            <!--<button 
+                                                type="submit" 
+                                                id="form-submit" 
+                                                class="main-button-icon"
+                                                onclick=""
+                                                >
+                                                Crear cuenta
+                                            </button>-->
+                                            <p:commandButton 
+                                                actionListener="#{ajaxPaises.create}" 
+                                                value="Crear cuenta" 
+                                                class="main-button-icon"
+                                                update="contact,:growl"
+                                                />
+
                                         </fieldset>
                                     </div>
                                 </div>

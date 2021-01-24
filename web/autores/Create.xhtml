@@ -7,8 +7,7 @@
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition>
-
-        <p:dialog id="AutoresCreateDlg" widgetVar="AutoresCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateAutoresTitle}">
+        <p:dialog style="background-color:#fff;" id="AutoresCreateDlg" widgetVar="AutoresCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateAutoresTitle}" class="contact-form">
             <h:form id="AutoresCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{autoresController.selected != null}">
@@ -19,13 +18,19 @@
                         <p:outputLabel value="#{bundle.CreateAutoresLabel_informacion}" for="informacion" />
                         <p:inputText id="informacion" value="#{autoresController.selected.informacion}" title="#{bundle.CreateAutoresTitle_informacion}" required="true" requiredMessage="#{bundle.CreateAutoresRequiredMessage_informacion}"/>
                         <p:outputLabel value="#{bundle.CreateAutoresLabel_autorHistorico}" for="autorHistorico" />
-                        <p:selectBooleanCheckbox id="autorHistorico" value="#{autoresController.selected.autorHistorico}" required="true" requiredMessage="#{bundle.EditAutoresRequiredMessage_autorHistorico}"/>
+                        <p:selectBooleanCheckbox onchange="myFunction()" id="autorHistorico" value="#{autoresController.selected.autorHistorico}" required="true" requiredMessage="Falta llenar el campo Autor Histórico"/>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{autoresController.create}" value="#{bundle.Save}" update="display,:AutoresListForm:datalist,:growl" oncomplete="handleSubmit(args,'AutoresCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="AutoresCreateDialog.hide()"/>
+                    <br></br>
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-12">
+                            <p:commandButton actionListener="#{autoresController.create}" value="#{bundle.Save}" update="display,:AutoresListForm:datalist,:growl" oncomplete="handleSubmit(args,'AutoresCreateDialog');"/>
+                        </div>
+                        <div class="col-lg-3 col-sm-12">
+                            <p:commandButton value="#{bundle.Cancel}" onclick="AutoresCreateDialog.hide()"/>
+                        </div>                        
+                    </div>
                 </h:panelGroup>
             </h:form>
         </p:dialog>
-
     </ui:composition>
 </html>

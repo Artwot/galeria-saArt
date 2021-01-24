@@ -9,19 +9,25 @@
     <ui:composition>
 
         <p:dialog id="FotosobrasCreateDlg" widgetVar="FotosobrasCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateFotosobrasTitle}">
-            <h:form id="FotosobrasCreateForm">
+            <h:form id="FotosobrasCreateForm" enctype="multipart/form-data">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{fotosobrasController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateFotosobrasLabel_ruta}" for="ruta" />
-                        <p:inputText id="ruta" value="#{fotosobrasController.selected.ruta}" title="#{bundle.CreateFotosobrasTitle_ruta}" required="true" requiredMessage="#{bundle.CreateFotosobrasRequiredMessage_ruta}"/>
                         <p:outputLabel value="#{bundle.CreateFotosobrasLabel_idObra}" for="idObra" />
                         <p:selectOneMenu id="idObra" value="#{fotosobrasController.selected.idObra}" >
                             <f:selectItems value="#{obrasController.itemsAvailableSelectOne}"
                                            var="idObraItem"
                                            itemValue="#{idObraItem}"/>
                         </p:selectOneMenu>
+                        <p:outputLabel value="Selecciona un archivo" for="foto" />
+                        <p:fileUpload id="foto" value="#{fotosobrasController.foto}" mode="simple" allowTypes="/(\.|\/)(png|pdf|doc)$/1"/>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{fotosobrasController.create}" value="#{bundle.Save}" update="display,:FotosobrasListForm:datalist,:growl" oncomplete="handleSubmit(args,'FotosobrasCreateDialog');"/>
+                    <p:inputText id="aux" value="#{fotosobrasController.aux}" title="aux" type="hidden" />                    
+                    <p:commandButton 
+                        value="Guardar Archivo"
+                        action="#{fotosobrasController.NuevoDocumento()}"
+                        ajax="false"
+                        update="display,:FotosautoresListForm:datalist,:growl"
+                        />
                     <p:commandButton value="#{bundle.Cancel}" onclick="FotosobrasCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

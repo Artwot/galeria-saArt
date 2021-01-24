@@ -6,7 +6,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-        <ui:composition template="/template/template_crud.xhtml">
+        <ui:composition template="/template/template_curador.xhtml">
 
 
         <ui:define name="title">
@@ -14,8 +14,13 @@
         </ui:define>
 
         <ui:define name="body">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
             <h:form id="FotosobrasListForm">
-                <p:panel header="#{bundle.ListFotosobrasTitle}">
+                <p:panel header="Lista de las fotos">
                     <p:dataTable id="datalist" value="#{fotosobrasController.items}" var="item"
                                  selectionMode="single" selection="#{fotosobrasController.selected}"
                                  paginator="true"
@@ -41,15 +46,21 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
+                                <h:outputText value="Foto" />
+                            </f:facet>
+                            <h:graphicImage name="#{item.ruta}" height="250px" />
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListFotosobrasTitle_status}"/>
                             </f:facet>
                             <h:outputText value="#{item.status}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListFotosobrasTitle_idObra}"/>
+                                <h:outputText value="Título de la obra"/>
                             </f:facet>
-                            <h:outputText value="#{item.idObra}"/>
+                            <h:outputText value="#{item.idObra.nombre}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{fotosobrasController.prepareCreate}" update=":FotosobrasCreateForm" oncomplete="PF('FotosobrasCreateDialog').show()"/>

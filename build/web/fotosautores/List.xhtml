@@ -6,7 +6,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template/template_crud.xhtml">
+    <ui:composition template="/template/template_curador.xhtml">
 
 
         <ui:define name="title">
@@ -18,8 +18,9 @@
             <br />
             <br />
             <br />
+            <br />
             <h:form id="FotosautoresListForm">
-                <p:panel header="#{bundle.ListFotosautoresTitle}">
+                <p:panel header="Lista de las fotos">
                     <p:dataTable id="datalist" value="#{fotosautoresController.items}" var="item"
                                  selectionMode="single" selection="#{fotosautoresController.selected}"
                                  paginator="true"

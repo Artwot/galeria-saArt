@@ -6,7 +6,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-        <ui:composition template="/template/template_crud.xhtml">
+    <ui:composition template="/template/template_admin.xhtml">
 
 
         <ui:define name="title">
@@ -19,10 +19,8 @@
             <br />
             <br />
             <br />
-            <br />
-            <br />
             <h:form id="UsuariosListForm">
-                <p:panel>
+                <p:panel header="Lista de usuarios">
                     <p:dataTable id="datalist" value="#{usuariosController.items}" var="item"
                                  selectionMode="single" selection="#{usuariosController.selected}"
                                  paginator="true"

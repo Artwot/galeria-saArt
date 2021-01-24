@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import modelo.Entidades;
+import modelo.Paises;
 
 /**
  *
@@ -49,6 +50,17 @@ public class EntidadesFacade extends AbstractFacade<Entidades> {
             return lista;
         else
             return null;
+    }
+    
+    public List<Entidades> Buscar(int idpais) {
+        System.out.println("###############Enrtaste al método Buscar#################");
+        System.out.println("Valor: " +idpais);
+        Paises pais = new Paises(idpais);
+        Query query = em.createNamedQuery("Entidades.buscar", Entidades.class)
+                .setParameter("id_pais", pais);
+        List<Entidades> lista = query.getResultList();
+        
+        return lista;
     }
     
 }

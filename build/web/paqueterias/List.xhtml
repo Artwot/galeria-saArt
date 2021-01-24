@@ -6,7 +6,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-        <ui:composition template="/template/template_crud.xhtml">
+        <ui:composition template="/template/template_admin.xhtml">
 
 
         <ui:define name="title">
@@ -20,7 +20,7 @@
             <br />
             <br />
             <h:form id="PaqueteriasListForm">
-                <p:panel header="#{bundle.ListPaqueteriasTitle}">
+                <p:panel header="Lista de paqueterías">
                     <p:dataTable id="datalist" value="#{paqueteriasController.items}" var="item"
                                  selectionMode="single" selection="#{paqueteriasController.selected}"
                                  paginator="true"
